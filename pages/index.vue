@@ -1,67 +1,79 @@
 <template>
-  <section class="container">
-    <div>
-      <app-logo/>
-      <h1 class="title">
-        apilable al infinito
-      </h1>
-      <h2 class="subtitle">
-        Se viene, se viene!
-      </h2>
-      <h4>Saludos a @Imgermi</h4>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green">Info</a>
-        <!-- <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey">GitHub</a> -->
+  <div class="index">
+    <section class="main">
+      <div class="wrapper-1100">
+        <img class="logo-principal" src="../assets/marca-vertical.svg" alt="Apilable al infinito">
       </div>
-    </div>
-  </section>
+      <img class="bg-letter" src="../assets/a.svg" alt="a">
+    </section>
+    <section class="project">
+      <div class="wrapper-1100">
+        <div class="wrap-text">
+          <img src="../assets/el-proyecto.svg" alt="El proyecto" class="title">
+          <p>
+            “Apilable al infinito” (se apila, se archiva, se comparte).
+            <br>
+            Apilable como archivo: registro ordenado de obra, documentación de obra y autor.
+            <br>
+            Apilable como archivo que construye legibilidades posibles.
+            <br>
+            Reescrituras.
+          </p>
+          <button-layout>
+            <template slot="button">Conocer más</template>
+          </button-layout>
+        </div>
+      </div>
+    </section>
+    <artworks></artworks>
+  </div>
 </template>
 
 <script>
 import AppLogo from '~/components/AppLogo.vue'
+import Artworks from '~/components/Artworks.vue'
+import ButtonLayout from '~/components/ButtonLayout.vue'
 
 export default {
   components: {
-    AppLogo
+    AppLogo,
+    Artworks,
+    ButtonLayout
   }
 }
 </script>
 
-<style>
-.container {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
+<style scoped>
+section {
+  padding: 40px 0 40px 55px;
+  width: 100%;
+}
+.main {
+  background: #F1E8B8;
+  position: relative;
+}
+.main .wrapper-1100 {
   align-items: center;
-  text-align: center;
+  display: flex;
+  height: 100vh;
+  justify-content: flex-end;
+  text-align: right;
 }
-
-.title {
-  font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; /* 1 */
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
+.bg-letter {
+  position: absolute;
+  left: 30%;
+  bottom: -50vh;
 }
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
+.project {
+  background: #FF4C3A;
+  color: #fff;
+  padding: 70px 0 70px 55px;
 }
-
-.links {
-  padding-top: 15px;
-  margin-top: 50px;
-}
+  .project .wrap-text {
+    max-width: 550px
+  }
+  .project .title {
+    margin-bottom: 40px;
+  }
 </style>
 
