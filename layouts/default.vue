@@ -2,13 +2,16 @@
   <div>
     <nav-vertical></nav-vertical>
     <nuxt/>
+    <footer-layout></footer-layout>
   </div>
 </template>
 <script>
+  import FooterLayout from '@/components/FooterLayout'
   import NavVertical from '@/components/NavVertical'
   export default {
     name: 'default',
     components: {
+      FooterLayout,
       NavVertical
     }
   }
