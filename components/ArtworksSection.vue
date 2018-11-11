@@ -22,7 +22,7 @@
 </template>
 <script>
 export default{
-	name: 'artworks',
+	name: 'artworks-section',
 	data () {
 		return {
 			item1: {
@@ -46,7 +46,6 @@ export default{
 </script>
 <style scoped>
 .artworks {
-	padding: 0 0 0 55px;
   width: 100%;
   height: 100vh;
   /*border: 2px solid #CCC;*/

@@ -43,4 +43,13 @@ button.linear.white {
 		background: #fff;
 		color: #FF4C3A;
 	}
+button.black {
+	background: transparent;
+	border: solid 1px #000000;
+	color: #000000;
+}
+	button.black:hover {
+		background: #000000;
+		color: #FF4C3A;
+	}
 </style>

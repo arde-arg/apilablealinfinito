@@ -13,6 +13,7 @@ module.exports = {
     ],
     link: [
       // { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      {rel:"stylesheet", href:"https://fonts.googleapis.com/css?family=Open+Sans"},
       { rel:"apple-touch-icon", sizes: "180x180", href: "favicon/apple-touch-icon.png" },
       { rel:"icon", type: "image/png", sizes: "32x32", href: "favicon/favicon-32x32.png" },
       { rel:"icon", type: "image/png", sizes: "16x16", href: "favicon/favicon-16x16.png" },
@@ -23,7 +24,7 @@ module.exports = {
   /*
   ** Customize the progress bar color
   */
-  loading: { color: '#3B8070' },
+  loading: { color: '#FF4C3A' },
   plugins: ['~/plugins/vue-awesome'],
   /*
   ** Build configuration
@@ -42,6 +43,9 @@ module.exports = {
         })
       }
     }
-  }
+  },
+  css: [
+    '~/assets/main.css'
+  ]
 }
 

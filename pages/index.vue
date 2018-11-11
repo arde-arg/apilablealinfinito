@@ -25,27 +25,29 @@
         </div>
       </div>
     </section>
-    <artworks></artworks>
+    <artworks-section></artworks-section>
+    <register-section></register-section>
   </div>
 </template>
 
 <script>
-import AppLogo from '~/components/AppLogo.vue'
-import Artworks from '~/components/Artworks.vue'
+import ArtworksSection from '~/components/ArtworksSection.vue'
 import ButtonLayout from '~/components/ButtonLayout.vue'
+import RegisterSection from '~/components/RegisterSection.vue'
 
 export default {
   components: {
-    AppLogo,
-    Artworks,
-    ButtonLayout
+    ArtworksSection,
+    ButtonLayout,
+    RegisterSection
   }
 }
 </script>
 
 <style scoped>
 section {
-  padding: 40px 0 40px 55px;
+  padding-top: 40px;
+  padding-bottom: 40px;
   width: 100%;
 }
 .main {
@@ -60,14 +62,22 @@ section {
   text-align: right;
 }
 .bg-letter {
-  position: absolute;
-  left: 30%;
   bottom: -50vh;
+  height: 100vh;
+  left: 30%;
+  position: absolute;
+}
+@media (max-width: 1025px) {
+  .bg-letter {
+    bottom: -25vh;
+    height: 50vh;
+    left: 15px;
+  }
 }
 .project {
   background: #FF4C3A;
   color: #fff;
-  padding: 70px 0 70px 55px;
+  padding: 70px 0;
 }
   .project .wrap-text {
     max-width: 550px
