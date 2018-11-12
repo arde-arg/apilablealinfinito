@@ -3,7 +3,7 @@
   <div class="portada">
     <div class="wrapper-1100">
       <div class="category">{{ $store.state.artworkSelected.category }}</div>
-      <h1>{{ $store.state.artworkSelected.title }}</h1>
+      <h1 class="page-title">{{ $store.state.artworkSelected.title }}</h1>
     </div>
   </div>
   <div class="wrapper-1100 wrap-art-cont">
@@ -62,22 +62,6 @@ export default {
 </script>
 
 <style scoped>
-.portada {
-  background-color: #f1e8b8;
-  margin-bottom: 80px;
-}
-  .portada .wrapper-1100 {
-    height: 225px;
-    position: relative;
-    display: flex;
-    align-items: center;
-  }
-  h1 {
-    font-size: 4.5rem;
-    position: absolute;
-    bottom: -40px;
-    left: 15px;
-  }
   .artwork .category {
     font-size: 1.5rem;
   }
@@ -94,6 +78,14 @@ export default {
   }
     .artwork .date {
       font-size: 1.125rem;
+    }
+    @media (max-width: 620px) {
+      .artwork .artist {
+        font-size: 1.125rem;
+      }
+      .artwork .date {
+        font-size: .9rem;
+      }
     }
     .wrap-art-cont {
       padding-bottom: 120px;

@@ -23,6 +23,11 @@ export default{
   position: relative;
   margin-bottom: 40px;
 }
+@media (max-width: 620px) {
+  .search {
+    margin-bottom: 0;
+  }
+}
 input {
   background-color: #dbdbdb;
   border-radius: 5px;

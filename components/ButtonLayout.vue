@@ -29,7 +29,7 @@ button {
 	cursor: pointer;
 	font-size: 1rem;
 	line-height: 1.2rem;
-	margin: 25px 0 0;
+	/*margin: 25px 0 0;*/
 	padding: 10px 20px;
 	position: relative;
 	transition: all 1s;
@@ -50,6 +50,6 @@ button.black {
 }
 	button.black:hover {
 		background: #000000;
-		color: #FF4C3A;
+		color: #fff;
 	}
 </style>

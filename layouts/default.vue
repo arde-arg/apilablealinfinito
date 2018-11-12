@@ -50,6 +50,15 @@ p {
 }
 img {
   max-width: 100%;
+  height: auto
+}
+button, input {
+  border: 0;
+}
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 .main {
   z-index: 1;
@@ -70,6 +79,37 @@ img {
 }
 input {
   border: 0;
+}
+
+
+.portada {
+  background-color: #f1e8b8;
+  margin-bottom: 80px;
+}
+  .portada .wrapper-1100 {
+    height: 225px;
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+.page-title {
+  font-size: 4.5rem;
+  position: absolute;
+  bottom: -40px;
+  left: 15px;
+}
+@media (max-width: 620px) {
+  .portada {
+    margin-bottom: 40px;
+  }
+  .portada .wrapper-1100 {
+    height: 130px;
+  }
+  .page-title {
+    bottom: -23px;
+    font-size: 3rem;
+    line-height: 3.1rem;
+  }
 }
 </style>
 

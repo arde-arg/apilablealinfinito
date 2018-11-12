@@ -2,7 +2,7 @@
 <div class="project">
   <div class="portada">
     <div class="wrapper-1100">
-      <h1>El proyecto</h1>
+      <h1 class="page-title">El proyecto</h1>
     </div>
   </div>
   <div class="wrapper-1100 main-cont">
@@ -31,12 +31,6 @@ export default {
     position: relative;
     display: flex;
     align-items: center;
-  }
-  h1 {
-    font-size: 4.5rem;
-    position: absolute;
-    bottom: -40px;
-    left: 15px;
   }
 .project .main-cont {
 	min-height: calc(100vh - 120px - 80px - 42px)

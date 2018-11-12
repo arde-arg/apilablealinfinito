@@ -88,5 +88,8 @@ section {
   .project .title {
     margin-bottom: 40px;
   }
+.index /deep/ button {
+  margin-top: 25px
+}
 </style>
 
