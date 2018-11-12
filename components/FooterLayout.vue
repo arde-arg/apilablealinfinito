@@ -11,7 +11,7 @@
       <p>@apilablealinfinito</p>
     </div>
     <div class="col-der">
-      <a href="mailto:info@apilablealinfinito.com" target="_blank">info@apilablealinfinito.com</a> - copyright {{this.year}}
+      <a href="mailto:info@apilablealinfinito.com" target="_blank">info@apilablealinfinito.com </a> - copyright {{this.year}}
     </div>
   </div>
 </footer>
@@ -32,7 +32,7 @@ export default{
 </script>
 <style scoped>
 footer {
-  background: #FF4C3A;
+  background: #555555;
   padding: 10px 0;
 }
 .col-izq, .col-der {
@@ -64,7 +64,7 @@ footer {
   vertical-align: middle;
 }
 a:hover, a:hover .fa-icon {
-  color: black;
+  color: #FF4C3A;
 }
 .col-izq p {
   padding-left: 10px;

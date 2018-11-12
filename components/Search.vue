@@ -1,5 +1,6 @@
 <template>
   <div class="search">
+    <input type="search" name="search" placeholder="Buscar obra...">
     <v-icon name="search"/>
   </div>
 </template>
@@ -17,5 +18,21 @@ export default{
 }
 </script>
 <style scoped>
-
+.search {
+  display: inline-block;
+  position: relative;
+  margin-bottom: 40px;
+}
+input {
+  background-color: #dbdbdb;
+  border-radius: 5px;
+  height: 40px;
+  padding: 5px;
+  width: 275px;
+}
+.fa-icon {
+  position: absolute;
+  right: 10px;
+  top: 13px;
+}
 </style>

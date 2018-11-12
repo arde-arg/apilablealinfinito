@@ -19,9 +19,12 @@
             <br>
             Reescrituras.
           </p>
-          <button-layout>
-            <template slot="button">Conocer más</template>
-          </button-layout>
+
+          <nuxt-link to="/project">
+            <button-layout>
+              <template slot="button">Conocer más</template>
+            </button-layout>
+          </nuxt-link>
         </div>
       </div>
     </section>

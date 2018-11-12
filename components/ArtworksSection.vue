@@ -1,23 +1,15 @@
 <template>
 <div class="artworks">
-	<a class="box item1" :style="{'background-image': 'url(' +  item1.src + ')'}">
+  <nuxt-link to="artwork"
+    v-for="item in $store.state.artworksHome"
+    :key="item.id"
+    class="box"
+    :style="{'background-image': 'url(' +  item.img.src + ')'}">
    <div class="overlay">
-     <div class="artwork-name">{{item1.title}}</div>
-     <div class="author">{{item1.author}}</div>
+     <div class="artwork-name">{{item.title}}</div>
+     <div class="author">{{item.artist}}</div>
    </div>
-  </a>
-	<a class="box item2" :style="{'background-image': 'url(' +  item2.src + ')'}">
-   <div class="overlay">
-     <div class="artwork-name">{{item2.title}}</div>
-     <div class="author">{{item2.author}}</div>
-   </div>
-  </a>
-	<a class="box item3" :style="{'background-image': 'url(' +  item3.src + ')'}">
-   <div class="overlay">
-     <div class="artwork-name">{{item3.title}}</div>
-     <div class="author">{{item3.author}}</div>
-   </div>
-  </a>
+  </nuxt-link>
 </div>
 </template>
 <script>
@@ -69,20 +61,20 @@ export default{
   display: block;
 }
 
-.item1 {
+.box:first-child {
   background-color: #fffeee;
   grid-column: 1 / 3;
   grid-row: 1 / 3;
 }
-.item2,
-.item3 {
+.box:nth-child(2),
+.box:nth-child(3) {
   grid-column: 3 / 5;
 }
-.item2 {
+.box:nth-child(2) {
   background-color: blue;
   grid-row: 1 / 2;
 }
-.item3 {
+.box:nth-child(3) {
   grid-row: 2 / 2;
 }
   .box .overlay {
@@ -116,9 +108,7 @@ export default{
     display: block;
     height: auto;
   }
-  .item1,
-  .item2,
-  .item3 {
+  .box {
     height: 300px;
   }
 }

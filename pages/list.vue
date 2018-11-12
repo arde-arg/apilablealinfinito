@@ -5,8 +5,10 @@
       <h1>Archivo</h1>
     </div>
   </div>
-  <search></search>
-  <list-module></list-module>
+  <div class="wrapper-1100">
+    <search></search>
+    <list-module></list-module>
+  </div>
 </div>
 </template>
 
@@ -26,15 +28,15 @@ export default {
   background-color: #f1e8b8;
   margin-bottom: 50px;
 }
-.wrapper-1100 {
-  height: 120px;
-  position: relative;
-}
+  .portada .wrapper-1100 {
+    height: 120px;
+    position: relative;
+  }
 h1 {
   font-size: 4.5rem;
   position: absolute;
   bottom: -40px;
-  left: 0;
+  left: 15px;
 }
 </style>
 

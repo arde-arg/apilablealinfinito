@@ -48,22 +48,28 @@ a {
 p {
   font-size: 1rem;
 }
+img {
+  max-width: 100%;
+}
 .main {
   z-index: 1;
 }
 .nav-vertical {
   z-index: 3;
 }
-.index, .list {
+.index, .list, .artwork, .project {
   padding-left: 55px;
 }
 @media (max-width: 620px) {
-  .index, .list {
+  .index, .list, .artwork, .project {
     padding-left: 0;
   }
   body {
     padding-bottom: 55px;
   }
+}
+input {
+  border: 0;
 }
 </style>
 
