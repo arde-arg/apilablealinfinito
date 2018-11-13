@@ -43,14 +43,11 @@ module.exports = {
           exclude: /(node_modules)/
         })
       }
-    }
+    },
     extend (config, { isServer }) {
-      // ...
       if (isServer) {
         config.externals = [
           nodeExternals({
-            // default value for `whitelist` is
-            // [/es6-promise|\.(?!(?:js|json)$).{1,5}$/i]
             whitelist: [/es6-promise|\.(?!(?:js|json)$).{1,5}$/i, /^vue-awesome/]
           })
         ]
