@@ -96,9 +96,9 @@ export default {
       background: rgba(255,76,58,.8);
       color: #fff;
     }
-.fa-icon {
-	margin-right: 10px;
-}
+  .fa-icon {
+  	margin-right: 10px;
+  }
 
 .slide-fade-enter-active {
   transition: all .3s ease;
