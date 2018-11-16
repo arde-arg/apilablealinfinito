@@ -26,7 +26,16 @@ module.exports = {
   ** Customize the progress bar color
   */
   loading: { color: '#FF4C3A' },
-  plugins: ['~/plugins/vue-awesome'],
+
+  modules: [
+      '@nuxtjs/dotenv'
+  ],
+
+  plugins: [
+    '~/plugins/vue-awesome',
+    '~/plugins/api'
+  ],
+
   /*
   ** Build configuration
   */

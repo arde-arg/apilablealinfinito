@@ -43,6 +43,11 @@ export default {
     ArtworksSection,
     ButtonLayout,
     RegisterSection
+  },
+
+  async created () {
+    let posts = await this.$api.getPosts()
+    console.log(posts)
   }
 }
 </script>
