@@ -2,31 +2,42 @@
 <div class="artwork">
   <div class="portada">
     <div class="wrapper-1100">
-      <div class="category">{{ $store.state.artworkSelected.category }}</div>
-      <h1 class="page-title">{{ $store.state.artworkSelected.title }}</h1>
+      <div v-if="artwork.category" class="category">{{ artwork.category }}</div>
+      <h1 class="page-title">{{ artwork.title }}</h1>
     </div>
   </div>
   <div class="wrapper-1100 wrap-art-cont">
-    <div class="artist">@{{ $store.state.artworkSelected.artist }}</div>
+    <div v-if="artwork.artist" class="artist">@{{ artwork.artist }}</div>
     <div class="date-block">
-      <div class="date">{{ $store.state.artworkSelected.date }}</div>
+      <div class="date">{{ artwork.date }}</div>
       <share></share>
     </div>
     <div class="wrap-art">
+
       <div class="content">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean semper erat id ex varius lobortis. Etiam imperdiet, justo nec fringilla ornare, mauris quam venenatis augue, vitae pulvinar ex neque at enim. Quisque aliquam dolor eget iaculis aliquet. Praesent interdum, risus eu tempus posuere, ante metus posuere velit, sed vehicula lectus ante sed lectus. Suspendisse eget euismod sem, rhoncus congue augue. Phasellus mollis non urna eget feugiat. Suspendisse potenti.</p>
-        <p>Vivamus sit amet convallis erat, eget pellentesque sem. Aenean at mollis purus, nec scelerisque felis. Fusce est arcu, iaculis sed pretium sed, vehicula nec felis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Morbi in neque non felis placerat volutpat. Etiam scelerisque felis at finibus condimentum. Nunc vel porttitor leo, quis varius lorem. Suspendisse malesuada eros et porta tempor.</p>
-        <img src="../assets/china.png" alt="China">
-        <p>Vivamus sit amet convallis erat, eget pellentesque sem. Aenean at mollis purus, nec scelerisque felis. Fusce est arcu, iaculis sed pretium sed, vehicula nec felis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Morbi in neque non felis placerat volutpat. Etiam scelerisque felis at finibus condimentum. Nunc vel porttitor leo, quis varius lorem. Suspendisse malesuada eros et porta tempor.</p>
-        <p>Vivamus sit amet convallis erat, eget pellentesque sem. Aenean at mollis purus, nec scelerisque felis. Fusce est arcu, iaculis sed pretium sed, vehicula nec felis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Morbi in neque non felis placerat volutpat. Etiam scelerisque felis at finibus condimentum. Nunc vel porttitor leo, quis varius lorem. Suspendisse malesuada eros et porta tempor.</p>
+       <div v-html="artwork.content"></div>
       </div>
+
       <div class="wrap-img">
-        <img :src="$store.state.artworkSelected.coverImg.src" :alt="$store.state.artworkSelected.coverImg.alt" class="cover-img">
+        <img :src="artwork.img.src" :alt="artwork.img.alt" class="cover-img">
       </div>
+
+      <div v-if="artwork.video">
+        <iframe
+          :src="'https://player.vimeo.com/video/' + artwork.video"
+          width="640"
+          height="352"
+          frameborder="0"
+          webkitallowfullscreen
+          mozallowfullscreen
+          allowfullscreen
+        ></iframe>
+      </div>
+
     </div>
-    <div v-if="$store.state.artworkSelected.pdfs" class="download-row">
+    <div v-if="artwork.pdfs.length" class="download-row">
       <div
-        v-for="pdf in $store.state.artworkSelected.pdfs"
+        v-for="pdf in artwork.pdfs"
         :key="pdf.id"
         class="download-item" >
         <svg xmlns="http://www.w3.org/2000/svg" width="40.572" height="40.573">
@@ -54,9 +65,27 @@ export default {
     Search,
     Share
   },
+  validate ({ params }) {
+    return /^\d+$/.test(params.id)
+  },
   data () {
     return {
+      artwork: {
+        id: 0,
+        artist: '',
+        category: ''  ,
+        img: {
+          src: '',
+          alt: ''
+        },
+        date: '',
+        pdfs: [],
+        title: ''
+      }
     }
+  },
+  async created () {
+    this.artwork = await this.$api.getArticle(this.$route.params.id)
   }
 }
 </script>
