@@ -1,11 +1,11 @@
 <template>
 <div class="list-module">
-  <nuxt-link to="artwork"
-    v-for="item in $store.state.artworks"
+  <nuxt-link :to="{name: 'artwork-id', params:{id: item.id}}"
+    v-for="item in artworks"
     :key="item.id"
     class="item">
     <div class="bg-hover"></div>
-    <img :src="item.img.src" :alt="item.img.alt">
+    <img :src="item.img.src || item.img.src_default" :alt="item.img.alt">
     <div class="category">{{item.category}}</div>
     <div class="title">{{item.title}}</div>
     <div class="artist">@{{item.artist}}</div>
@@ -16,10 +16,12 @@
 import Icon from 'vue-awesome/components/Icon'
 export default{
 	name: 'list-module',
-	data () {
-		return {
+  props: {
+    artworks: {
+      type: Array,
+      default: () => []
     }
-	}
+  }
 }
 </script>
 <style scoped>

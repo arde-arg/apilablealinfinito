@@ -83,6 +83,20 @@ export default function(ctx, inject) {
       }
     },
 
+    async getArticles() {
+      try {
+        let items = await wp.articulos()
+          .order('asc')
+          .orderby('date')
+          .param({status: 'publish'})
+          .embed()
+        return makeArticles(items)
+
+      }catch(e){
+        console.log(e)
+      }
+    },
+
     async getArticle(id) {
       try {
         let item = await wp.articulos()

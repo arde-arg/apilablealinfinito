@@ -7,7 +7,11 @@
   </div>
   <div class="wrapper-1100">
     <search></search>
-    <list-module></list-module>
+    <list-module
+      v-if="artworks.length"
+      :artworks="artworks"
+    />
+    <p v-else class="sin-resultados">No hay resultados.</p>
   </div>
 </div>
 </template>
@@ -19,6 +23,14 @@ export default {
   components: {
     ListModule,
     Search
+  },
+  data () {
+    return{
+      artworks: []
+    }
+  },
+  async created () {
+    this.artworks = await this.$api.getArticles()
   }
 }
 </script>
@@ -26,6 +38,9 @@ export default {
 <style scoped>
 .portada .wrapper-1100 {
   height: 120px;
+}
+.sin-resultados {
+  margin: 20px auto 50px;
 }
 </style>
 
