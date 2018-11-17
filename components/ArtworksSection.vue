@@ -1,7 +1,7 @@
 <template>
 <div class="artworks">
   <nuxt-link to="artwork"
-    v-for="item in $store.state.artworksHome"
+    v-for="item in artworksHome"
     :key="item.id"
     class="box"
     :style="{'background-image': 'url(' +  item.img.src + ')'}">
@@ -15,25 +15,14 @@
 <script>
 export default{
 	name: 'artworks-section',
-	data () {
-		return {
-			item1: {
-				src: require('@/assets/china.png'),
-				title: 'Hotaru',
-        author: '@Uemura Shōen'
-			},
-			item2: {
-				src: require('@/assets/china.png'),
-				title: 'Laberinto',
-        author: '@Costhanzo'
-			},
-			item3: {
-				src: require('@/assets/china.png'),
-				title: 'Creencias',
-        author: '@ArmaniAlda'
-			}
-		}
-	}
+  data () {
+    return {
+      artworksHome: []
+    }
+  },
+  async created () {
+    this.artworksHome = await this.$api.getFeaturedArticles()
+  }
 }
 </script>
 <style scoped>
