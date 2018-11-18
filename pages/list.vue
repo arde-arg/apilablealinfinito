@@ -6,7 +6,10 @@
     </div>
   </div>
   <div class="wrapper-1100">
-    <search></search>
+    <search
+      :search="$route.query.search"
+      @newSearch="search"
+    ></search>
     <list-module
       v-if="artworks.length"
       :artworks="artworks"
@@ -29,8 +32,27 @@ export default {
       artworks: []
     }
   },
-  async created () {
-    this.artworks = await this.$api.getArticles()
+  beforeRouteEnter (to, from, next) {
+    next(async vm => {
+      let search = vm.$route.query.search
+      if(search){
+        vm.artworks = await vm.$api.getArticles(search)
+      }else{
+        vm.artworks = await vm.$api.getFeaturedArticles()
+      }
+    })
+  },
+  watch:{
+    async '$route.query.search' (newSearch) {
+      if(newSearch){
+        this.artworks = await this.$api.getArticles(newSearch)
+      }
+    }
+  },
+  methods: {
+    search (search) {
+      this.$router.push({query: {search}})
+    }
   }
 }
 </script>

@@ -1,6 +1,12 @@
 <template>
   <div class="search">
-    <input type="search" name="search" placeholder="Buscar obra...">
+    <input
+      type="search"
+      :value="search"
+      name="search"
+      @keypress.enter="$emit('newSearch', $event.target.value)"
+      placeholder="Buscar obra..."
+    />
     <v-icon name="search"/>
   </div>
 </template>
@@ -11,10 +17,12 @@ export default{
   components: {
     'v-icon': Icon
   },
-	data () {
-		return {
+  props: {
+    search: {
+      type: String,
+      default: ''
     }
-	}
+  }
 }
 </script>
 <style scoped>
