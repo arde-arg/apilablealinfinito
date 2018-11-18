@@ -21,7 +21,9 @@ export default{
     }
   },
   async created () {
+    this.$store.commit('SET_LOADING', true)
     this.artworksHome = await this.$api.getFeaturedArticles()
+    this.$store.commit('SET_LOADING', false)
   }
 }
 </script>

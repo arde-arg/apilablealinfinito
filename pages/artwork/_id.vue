@@ -15,7 +15,12 @@
     <div class="wrap-art">
 
       <div class="content">
-       <div v-html="artwork.content"></div>
+        <template v-if="$store.state.loading">
+          <loading-message />
+        </template>
+        <template v-else>
+          <div v-html="artwork.content"></div>
+        </template>
       </div>
 
       <div class="wrap-img">
@@ -59,11 +64,14 @@
 import ListModule from '~/components/ListModule.vue'
 import Search from '~/components/Search.vue'
 import Share from '~/components/Share.vue'
+import LoadingMessage from '~/components/LoadingMessage.vue'
+
 export default {
   components: {
     ListModule,
     Search,
-    Share
+    Share,
+    LoadingMessage
   },
   validate ({ params }) {
     return /^\d+$/.test(params.id)
@@ -85,7 +93,9 @@ export default {
     }
   },
   async created () {
+    this.$store.commit('SET_LOADING', true)
     this.artwork = await this.$api.getArticle(this.$route.params.id)
+    this.$store.commit('SET_LOADING', false)
   }
 }
 </script>
