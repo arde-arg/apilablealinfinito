@@ -5,7 +5,7 @@
       <h1 class="page-title">Archivo</h1>
     </div>
   </div>
-  <div class="wrapper-1100">
+  <div class="wrapper-1100 cont-list-modules">
     <search
       :search="$route.query.search"
       @newSearch="search"
@@ -75,6 +75,10 @@ export default {
 }
 .sin-resultados {
   margin: 20px auto 50px;
+}
+.cont-list-modules {
+  /*min-height: calc(100vh - 120px -80px - 42px - 1px - 50px)*/
+  min-height: calc(100vh - 120px -80px - 42px)
 }
 </style>
 

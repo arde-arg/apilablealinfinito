@@ -13,7 +13,7 @@ wp.articulos = wp.registerRoute('wp/v2', '/articulos/(?P<id>)', {
 });
 
 // Configuration
-const DEFAULT_IMG = require('@/assets/china.png')
+const DEFAULT_IMG = require('@/assets/default.png')
 
 let makeArticles = function(items){
   return items.map(item => makeArticle(item))

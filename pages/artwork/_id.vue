@@ -2,6 +2,14 @@
 <div class="artwork">
   <div class="portada">
     <div class="wrapper-1100">
+      <nuxt-link to="/list" class="back-btn">
+        <!-- <a @click="$router.go(-1)" href="" class="back-btn"> -->
+          <v-icon
+            name="arrow-left"
+            class="icon">
+          </v-icon>
+        <!-- </a> -->
+      </nuxt-link>
       <div v-if="artwork.category" class="category">{{ artwork.category }}</div>
       <h1 class="page-title">{{ artwork.title }}</h1>
     </div>
@@ -61,6 +69,8 @@
 </template>
 
 <script>
+import ButtonLayout from '~/components/ButtonLayout.vue'
+import Icon from 'vue-awesome/components/Icon'
 import ListModule from '~/components/ListModule.vue'
 import Search from '~/components/Search.vue'
 import Share from '~/components/Share.vue'
@@ -68,10 +78,12 @@ import LoadingMessage from '~/components/LoadingMessage.vue'
 
 export default {
   components: {
+    ButtonLayout,
     ListModule,
     Search,
     Share,
-    LoadingMessage
+    LoadingMessage,
+    'v-icon': Icon
   },
   validate ({ params }) {
     return /^\d+$/.test(params.id)
@@ -101,6 +113,21 @@ export default {
 </script>
 
 <style scoped>
+.back-btn {
+  position: absolute;
+  left: 15px;
+  top: 40px;
+  display:  block;
+  font-size: 1.5rem;
+}
+.fa-icon {
+  width: auto;
+  height: 1em; /* or any other relative font sizes */
+
+  /* You would have to include the following two lines to make this work in Safari */
+  max-width: 100%;
+  max-height: 100%;
+}
   .artwork .category {
     font-size: 1.5rem;
   }
