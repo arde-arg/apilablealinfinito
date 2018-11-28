@@ -58,7 +58,11 @@ let makeArticle = function(item){
       filename: pdf.name
     })),
     img: {
-      src: (image && image.media_details) ? image.media_details.sizes.medium_large.source_url : '',
+      src: (image && image.media_details)
+        ? (image.media_details.sizes.medium_large
+          ? image.media_details.sizes.medium_large.source_url
+          : image.media_details.source_url
+        ) : '',
       alt: image ? image.alt_text : '',
       src_default: DEFAULT_IMG
     },
