@@ -3,9 +3,12 @@
   <div class="wrapper-1100">
     <div class="wrap-text">
       <h3>Regístrate y conocé más sobre nosotros</h3>
-      <button-layout color="black">
-        <template slot="button">registrarse</template>
-      </button-layout>
+
+      <a href="https://admin.apilablealinfinito.com.ar/wp-admin/">
+        <button-layout color="black">
+          <template slot="button">registrarse</template>
+        </button-layout>
+      </a>
     </div>
   </div>
 </section>

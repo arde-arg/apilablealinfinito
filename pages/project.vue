@@ -7,8 +7,8 @@
   </div>
   <div class="wrapper-1100 main-cont">
     <h2>¿Qués es Apilable al infinito?</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt architecto suscipit dignissimos dolorum, omnis inventore enim ex a minus veritatis reiciendis facilis recusandae, quisquam, accusantium temporibus cum nemo nulla. Id.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus vel cum, iure quam. Illo hic veritatis, accusantium molestias et eligendi quaerat asperiores animi ad libero, quibusdam error soluta ratione ipsum!</p>
+    <p>Apilable a infinito es un espacio abierto a la exploración del trabajo interpersonal y a la profusión de más obra. Cabe consignar que cada volumen es contenedor de una temática específica, en términos muy generales y si esto puede entenderse así, con una lógica de juego narrativo propia que deriva en una sucesión de aconteceres semánticos. En palabras de Alberto Caballero (1): “Guillermo Pérez Raventós deja claro este proceso, se trata indefectiblemente de un trabajo sobre “la letra” tanto el sonido matérico de la voz como el significado de lo que va sucediendo están al servicio de la letra, y por lo tanto la imagen visual que de ello se obtiene es lineal, no se trata de un texto a interpretar, se trata de una sucesión a la letra, ahora una, ahora la siguiente, la sucesiva… se trata de una sucesión de imágenes a la letra”.</p>
+    <p><small>(1) Alberto Caballero, Barcelona junio 2009. Coordinador de GEIFC grupo de estudio e investigación de los fenómenos contemporáneos y de: Actión Art magazine sobre la acción.</small></p>
   </div>
 </div>
 </template>

@@ -3,7 +3,7 @@ import WPAPI from 'wpapi'
 import moment from 'moment'
 
 // Configuration
-const DEFAULT_IMG = require('@/assets/china.png')
+const DEFAULT_IMG = require('@/assets/default.png')
 
 let makeArticles = function(items){
   if(!items) return []
