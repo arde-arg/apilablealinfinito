@@ -2,7 +2,14 @@
 <div class="artwork">
   <div class="portada">
     <div class="wrapper-1100">
-<<<<<<< HEAD
+      <nuxt-link to="/list" class="back-btn">
+        <!-- <a @click="$router.go(-1)" href="" class="back-btn"> -->
+          <v-icon
+            name="arrow-left"
+            class="icon">
+          </v-icon>
+        <!-- </a> -->
+      </nuxt-link>
       <nuxt-link
         v-if="artwork.category"
         :to="{
@@ -16,15 +23,6 @@
       >
         {{ artwork.category }}
       </nuxt-link>
-      <nuxt-link to="/list" class="back-btn">
-        <!-- <a @click="$router.go(-1)" href="" class="back-btn"> -->
-          <v-icon
-            name="arrow-left"
-            class="icon">
-          </v-icon>
-        <!-- </a> -->
-      </nuxt-link>
-      <div v-if="artwork.category" class="category">{{ artwork.category }}</div>
       <h1 class="page-title">{{ artwork.title }}</h1>
     </div>
   </div>
