@@ -130,8 +130,14 @@ export default function(ctx, inject) {
         let item = await wp.articulos()
           .id(id)
           .embed()
-        return makeArticle(item)
+      }
+      return makeArticle(item)
+    },
 
+    async getAllArticles() {
+      try {
+        let items = await wp.articulos().status('publish').embed()
+        return makeArticles(items)
       }catch(e){
         console.log(e)
       }

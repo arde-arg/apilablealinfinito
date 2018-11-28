@@ -47,7 +47,7 @@ export default {
       if(search){
         vm.artworks = await vm.$api.getArticles(search)
       }else{
-        vm.artworks = await vm.$api.getFeaturedArticles()
+        vm.artworks = await vm.$api.getAllArticles()
       }
       vm.$store.commit('SET_LOADING', false)
     })
