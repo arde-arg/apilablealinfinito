@@ -16,6 +16,7 @@ wp.articulos = wp.registerRoute('wp/v2', '/articulos/(?P<id>)', {
 const DEFAULT_IMG = require('@/assets/china.png')
 
 let makeArticles = function(items){
+  if(!items) return []
   return items.map(item => makeArticle(item))
 }
 
@@ -68,6 +69,8 @@ let makeArticle = function(item){
     },
     artist: author ? author.name : '',
     title: item.title ? decodeHtmlEntities(item.title.rendered) : '',
+    categoryId: category ? category.id : '',
+    categoryUri: category ? category.slug : '',
     category: category ? category.name : ''
   }
 }
@@ -91,6 +94,19 @@ let decodeHtmlEntities = text =>  (text+"").replace(
         return makeArticles(items)
 
       }catch(e){
+        console.log(e)
+      }
+    },
+
+    async getArticlesByCategory(categoryId) {
+      try {
+        let items = await wp.articulos()
+          .status('publish')
+          .categories([categoryId])
+          .embed()
+        return makeArticles(items)
+      }catch(e){
+        return []
         console.log(e)
       }
     },

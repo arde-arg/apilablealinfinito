@@ -1,5 +1,17 @@
 const nodeExternals = require('webpack-node-externals')
 module.exports = {
+
+  router: {
+    base: '/',
+    extendRoutes(routes, resolve) {
+      routes.push({
+        name: 'categoria',
+        path: '/category/:categoryId/:categoryUri?',
+        component: resolve(__dirname, 'pages/list.vue')
+      })
+    }
+  },
+
   /*
   ** Headers of the page
   */

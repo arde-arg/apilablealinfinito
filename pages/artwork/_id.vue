@@ -2,7 +2,19 @@
 <div class="artwork">
   <div class="portada">
     <div class="wrapper-1100">
-      <div v-if="artwork.category" class="category">{{ artwork.category }}</div>
+      <nuxt-link
+        v-if="artwork.category"
+        :to="{
+          name: 'categoria',
+          params:{
+            categoryId: artwork.categoryId,
+            categoryUri: artwork.categoryUri
+          }
+        }"
+        class="category"
+      >
+        {{ artwork.category }}
+      </nuxt-link>
       <h1 class="page-title">{{ artwork.title }}</h1>
     </div>
   </div>

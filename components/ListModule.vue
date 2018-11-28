@@ -6,7 +6,18 @@
     class="item">
     <div class="bg-hover"></div>
     <img :src="item.img.src || item.img.src_default" :alt="item.img.alt">
-    <div class="category">{{item.category}}</div>
+    <nuxt-link
+      :to="{
+        name: 'categoria',
+        params:{
+          categoryId: item.categoryId,
+          categoryUri: item.categoryUri
+        }
+      }"
+      class="category"
+    >
+      {{item.category}}
+    </nuxt-link>
     <div class="title">{{item.title}}</div>
     <div class="artist">@{{item.artist}}</div>
   </nuxt-link>

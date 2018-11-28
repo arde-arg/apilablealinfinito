@@ -43,9 +43,12 @@ export default {
   beforeRouteEnter (to, from, next) {
     next(async vm => {
       let search = vm.$route.query.search
+      let category = vm.$route.params.categoryId
       vm.$store.commit('SET_LOADING', true)
       if(search){
         vm.artworks = await vm.$api.getArticles(search)
+      }else if(category){
+        vm.artworks = await vm.$api.getArticlesByCategory(category)
       }else{
         vm.artworks = await vm.$api.getAllArticles()
       }
@@ -57,6 +60,13 @@ export default {
       if(newSearch){
         this.$store.commit('SET_LOADING', true)
         this.artworks = await this.$api.getArticles(newSearch)
+        this.$store.commit('SET_LOADING', false)
+      }
+    },
+    async '$route.params.categoryId' (newCategory) {
+      if(newCategory){
+        this.$store.commit('SET_LOADING', true)
+        this.artworks = await this.$api.getArticlesByCategory(newCategory)
         this.$store.commit('SET_LOADING', false)
       }
     }
