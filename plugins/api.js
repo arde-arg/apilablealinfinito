@@ -68,6 +68,8 @@ let makeArticle = function(item){
       src_default: DEFAULT_IMG
     },
     artist: author ? author.name : '',
+    artistId: author ? author.id : '',
+    artistUri: author ? author.slug : '',
     title: item.title ? decodeHtmlEntities(item.title.rendered) : '',
     categoryId: category ? category.id : '',
     categoryUri: category ? category.slug : '',
@@ -103,6 +105,19 @@ let decodeHtmlEntities = text =>  (text+"").replace(
         let items = await wp.articulos()
           .status('publish')
           .categories([categoryId])
+          .embed()
+        return makeArticles(items)
+      }catch(e){
+        return []
+        console.log(e)
+      }
+    },
+
+    async getArticlesByArtist(artistId) {
+      try {
+        let items = await wp.articulos()
+          .status('publish')
+          .param('author', artistId)
           .embed()
         return makeArticles(items)
       }catch(e){

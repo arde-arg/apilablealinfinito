@@ -44,11 +44,14 @@ export default {
     next(async vm => {
       let search = vm.$route.query.search
       let category = vm.$route.params.categoryId
+      let artist = vm.$route.params.vId
       vm.$store.commit('SET_LOADING', true)
       if(search){
         vm.artworks = await vm.$api.getArticles(search)
       }else if(category){
         vm.artworks = await vm.$api.getArticlesByCategory(category)
+      }else if(artist){
+        vm.artworks = await vm.$api.getArticlesByArtist(artist)
       }else{
         vm.artworks = await vm.$api.getAllArticles()
       }
@@ -67,6 +70,13 @@ export default {
       if(newCategory){
         this.$store.commit('SET_LOADING', true)
         this.artworks = await this.$api.getArticlesByCategory(newCategory)
+        this.$store.commit('SET_LOADING', false)
+      }
+    },
+    async '$route.params.artistId' (newArtist) {
+      if(newArtist){
+        this.$store.commit('SET_LOADING', true)
+        this.artworks = await this.$api.getArticlesByArtist(newArtist)
         this.$store.commit('SET_LOADING', false)
       }
     }

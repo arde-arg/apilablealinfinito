@@ -19,7 +19,19 @@
     </div>
   </div>
   <div class="wrapper-1100 wrap-art-cont">
-    <div v-if="artwork.artist" class="artist">@{{ artwork.artist }}</div>
+    <nuxt-link
+      v-if="artwork.artist"
+      :to="{
+        name: 'artista',
+        params:{
+          artistId: artwork.artistId,
+          artistUri: artwork.artistUri
+        }
+      }"
+      class="artist"
+    >
+      @{{ artwork.artist }}
+    </nuxt-link>
     <div class="date-block">
       <div class="date">{{ artwork.date }}</div>
       <share></share>

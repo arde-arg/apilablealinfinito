@@ -19,7 +19,18 @@
       {{item.category}}
     </nuxt-link>
     <div class="title">{{item.title}}</div>
-    <div class="artist">@{{item.artist}}</div>
+    <nuxt-link
+      :to="{
+        name: 'artista',
+        params:{
+          artistId: item.artistId,
+          artistUri: item.artistUri
+        }
+      }"
+      class="artist"
+    >
+      @{{item.artist}}
+    </nuxt-link>
   </nuxt-link>
 </div>
 </template>
