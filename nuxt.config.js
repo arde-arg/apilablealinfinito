@@ -9,6 +9,11 @@ module.exports = {
         path: '/category/:categoryId/:categoryUri?',
         component: resolve(__dirname, 'pages/list.vue')
       })
+      routes.push({
+        name: 'artista',
+        path: '/artist/:artistId/:artistUri?',
+        component: resolve(__dirname, 'pages/list.vue')
+      })
     }
   },
 

@@ -2,16 +2,6 @@
 import WPAPI from 'wpapi'
 import moment from 'moment'
 
-let wp = new WPAPI({
-  endpoint: process.env.WP_API_URL
-});
-
-// Adds custom post type
-// https://github.com/WP-API/node-wpapi#custom-routes
-wp.articulos = wp.registerRoute('wp/v2', '/articulos/(?P<id>)', {
-    params: [ 'tags', 'categories', 'status' ]
-});
-
 // Configuration
 const DEFAULT_IMG = require('@/assets/china.png')
 
@@ -83,6 +73,29 @@ let decodeHtmlEntities = text =>  (text+"").replace(
   (s) => String.fromCharCode(s.match(/\d+/gm)[0])
 )
 
+
+export default function(ctx, inject) {
+  let wpConfig = {
+    endpoint: process.env.WP_API_URL
+  }
+
+  // Adds nounce to if present to grant access to private content
+  let nonce = ctx.route.query.preview
+  if(nonce){
+    wpConfig.nonce = nonce
+  }
+
+  let wp = new WPAPI(wpConfig);
+
+  if(nonce){
+    wp.setHeaders('X-WP-Nonce', nonce);
+  }
+
+  // Adds custom post type
+  // https://github.com/WP-API/node-wpapi#custom-routes
+  wp.articulos = wp.registerRoute('wp/v2', '/articulos/(?P<id>)', {
+      params: [ 'tags', 'categories', 'status' ]
+  });
 
   let api = {
     async getFeaturedArticles() {
@@ -165,9 +178,19 @@ let decodeHtmlEntities = text =>  (text+"").replace(
       }
     },
 
-    async getArticle(id) {
-      try {
-        let item = await wp.articulos()
+    async getArticle(id, nonce = false) {
+      let item = null
+      if(nonce){
+        // item = await wp.articulos()
+        //   .id(id)
+        //   .embed()
+        //   .param({'_wpnonce': nonce})
+        item = await fetch(
+            `https://admin.apilablealinfinito.com.ar/wp-json/wp/v2/articulos/${id}?_embed=true&_wpnonce=${nonce}`,
+            { credentials: "include" } // required for cookie nonce auth
+        )
+      }else{
+        item = await wp.articulos()
           .id(id)
           .embed()
       }

@@ -118,8 +118,20 @@ export default {
   },
   async created () {
     this.$store.commit('SET_LOADING', true)
-    this.artwork = await this.$api.getArticle(this.$route.params.id)
-    this.$store.commit('SET_LOADING', false)
+    try {
+      this.artwork = await this.$api.getArticle(
+        this.$route.params.id,
+        this.$route.query.preview
+      )
+    }catch(e){
+      console.log(e)
+      this.$nuxt.error({
+        statusCode: 404,
+        message: 'Este artículo no fue encontrado'
+      })
+    }finally{
+      this.$store.commit('SET_LOADING', false)
+    }
   }
 }
 </script>

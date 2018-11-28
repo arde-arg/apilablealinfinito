@@ -44,7 +44,7 @@ export default {
     next(async vm => {
       let search = vm.$route.query.search
       let category = vm.$route.params.categoryId
-      let artist = vm.$route.params.vId
+      let artist = vm.$route.params.artistId
       vm.$store.commit('SET_LOADING', true)
       if(search){
         vm.artworks = await vm.$api.getArticles(search)
