@@ -50,7 +50,7 @@ let makeArticle = function(item){
   return {
     id: item.id,
     date: item.date ? moment(item.date).format('DD/MM/YYYY') : '',
-    content: item.content ? item.content.rendered : '',
+    content: item.content ? decodeHtmlEntities(item.content.rendered) : '',
     video: item.acf && item.acf.video_vimeo ? item.acf.video_vimeo : '',
     pdfs: pdfs.map(pdf => ({
       id: pdf.id,
@@ -63,12 +63,17 @@ let makeArticle = function(item){
       src_default: DEFAULT_IMG
     },
     artist: author ? author.name : '',
-    title: item.title ? item.title.rendered : '',
+    title: item.title ? decodeHtmlEntities(item.title.rendered) : '',
     category: category ? category.name : ''
   }
 }
 
-export default function(ctx, inject) {
+// https://stackoverflow.com/a/27020300/6534992
+let decodeHtmlEntities = text =>  (text+"").replace(
+  /&#\d+;/gm,
+  (s) => String.fromCharCode(s.match(/\d+/gm)[0])
+)
+
 
   let api = {
     async getFeaturedArticles() {
