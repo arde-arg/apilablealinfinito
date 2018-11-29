@@ -5,7 +5,9 @@
     :key="item.id"
     class="box"
     :style="{'background-image': 'url(' +  (item.img.src || item.img.src_default) + ')'}">
-   <div class="overlay">
+
+  <loading-message v-show="$store.state.loading" />
+   <div v-show="!$store.state.loading" class="overlay">
      <div class="artwork-name">{{item.title}}</div>
      <div class="author">{{item.artist}}</div>
    </div>
@@ -13,8 +15,12 @@
 </div>
 </template>
 <script>
+import LoadingMessage from '~/components/LoadingMessage.vue'
 export default{
 	name: 'artworks-section',
+  components: {
+    LoadingMessage
+  },
   data () {
     return {
       artworksHome: []

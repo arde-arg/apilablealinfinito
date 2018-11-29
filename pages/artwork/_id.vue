@@ -154,6 +154,7 @@ export default {
   background-color: transparent;
   padding: 20px 0 0;
   position: relative;
+  min-height: 200px;
   /*margin-bottom: 80px;*/
 }
   .portada .portada-bg {
@@ -163,6 +164,11 @@ export default {
     background-color: #f1e8b8;
     top: 0;
     left: 0;
+  }
+  @media (max-width: 620px) {
+    .portada .portada-bg {
+      height: 130px;
+    }
   }
   .portada .wrapper-1100 {
     height: auto;

@@ -29,8 +29,7 @@
       </div>
     </section>
 
-    <loading-message v-show="$store.state.loading" />
-    <artworks-section v-show="!$store.state.loading"/>
+    <artworks-section/>
 
     <register-section />
   </div>
@@ -40,14 +39,14 @@
 import ArtworksSection from '~/components/ArtworksSection.vue'
 import ButtonLayout from '~/components/ButtonLayout.vue'
 import RegisterSection from '~/components/RegisterSection.vue'
-import LoadingMessage from '~/components/LoadingMessage.vue'
+// import LoadingMessage from '~/components/LoadingMessage.vue'
 
 export default {
   components: {
     ArtworksSection,
     ButtonLayout,
-    RegisterSection,
-    LoadingMessage
+    RegisterSection
+    // LoadingMessage
   }
 }
 </script>
