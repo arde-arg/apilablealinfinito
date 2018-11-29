@@ -1,6 +1,7 @@
 <template>
 <div class="artwork">
   <div class="portada">
+    <div class="portada-bg"></div>
     <div class="wrapper-1100">
       <nuxt-link to="/list" class="back-btn">
         <!-- <a @click="$router.go(-1)" href="" class="back-btn"> -->
@@ -149,11 +150,32 @@ export default {
 </script>
 
 <style scoped>
+.portada {
+  background-color: transparent;
+  padding: 20px 0 0;
+  position: relative;
+  /*margin-bottom: 80px;*/
+}
+  .portada .portad-bg {
+    position: absolute;
+    width:100%;
+    height: 225px;
+    background-color: #f1e8b8;
+    top: 0;
+    left: 0;
+  }
+  .portada .wrapper-1100 {
+    height: auto;
+    /*position: relative;*/
+    display: block;
+    /*align-items: center;*/
+  }
 .back-btn {
-  position: absolute;
-  left: 15px;
-  top: 40px;
+  /*position: absolute;*/
+  /*left: 15px;*/
+  /*top: 40px;*/
   display:  block;
+  margin-bottom: 20px;
   font-size: 1.5rem;
 }
 .fa-icon {
@@ -164,9 +186,42 @@ export default {
   max-width: 100%;
   max-height: 100%;
 }
-  .artwork .category {
-    font-size: 1.5rem;
+
+.artwork .category {
+  font-size: 1.5rem;
+  margin-bottom: 50px;
+}
+
+.page-title {
+  font-size: 3rem;
+  line-height: 3.2rem;
+  position: relative;
+  bottom: auto;
+  left: auto;
+}
+@media (max-width: 620px) {
+  .portada {
+    margin-bottom: 40px;
   }
+  .portada .wrapper-1100 {
+    height: auto;
+  }
+  .page-title {
+    bottom: auto;
+    font-size: 2.5rem;
+    line-height: 2.6rem;
+  }
+}
+
+
+
+
+
+
+
+
+
+
   .artwork .artist {
     font-size: 2.25rem;
     margin-bottom: 30px;

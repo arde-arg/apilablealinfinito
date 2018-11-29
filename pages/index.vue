@@ -4,7 +4,7 @@
       <div class="wrapper-1100">
         <img class="logo-principal" src="../assets/marca-vertical.svg" alt="Apilable al infinito">
       </div>
-      <img class="bg-letter" src="../assets/a.svg" alt="a">
+      <!-- <img class="bg-letter" src="../assets/a.svg" alt="a"> -->
     </section>
     <section class="project">
       <div class="wrapper-1100">
@@ -59,7 +59,7 @@ section {
   width: 100%;
 }
 .main {
-  background: #F1E8B8;
+  background: #e9f0ce;
   position: relative;
 }
 .main .wrapper-1100 {

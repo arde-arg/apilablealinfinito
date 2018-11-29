@@ -71,6 +71,7 @@ export default{
   .box .overlay {
     background-color: rgba(104,104,104,.3);
     height: 100%;
+    padding: 20px;
     position: absolute;
     left: 0;
     top: 0;
@@ -79,6 +80,7 @@ export default{
     align-items: center;
     justify-content: center;
     color: #fff;
+    text-align: center;
     flex-direction: column;
   }
     .box:hover .overlay {
@@ -90,6 +92,10 @@ export default{
   }
   .box .artwork-name {
     font-size: 2.250em;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
   }
   .box .author {
     font-size: 1.875em;
