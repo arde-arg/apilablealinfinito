@@ -19,7 +19,7 @@ export default{
   },
   data () {
     search: ''
-  }
+  },
   props: {
     search: {
       type: String,
