@@ -17,9 +17,6 @@ export default{
   components: {
     'v-icon': Icon
   },
-  data () {
-    search: ''
-  },
   props: {
     search: {
       type: String,
