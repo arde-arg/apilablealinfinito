@@ -7,7 +7,7 @@
       @keypress.enter="$emit('newSearch', $event.target.value)"
       placeholder="Buscar obra..."
     />
-    <v-icon name="search"/ @click="$emit('newSearch', $event.target.value)">
+    <v-icon name="search" @click="$emit('newSearch', $event.target.value)"/>
   </div>
 </template>
 <script>
