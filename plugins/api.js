@@ -1,6 +1,7 @@
 // https://www.npmjs.com/package/wpapi
 import WPAPI from 'wpapi'
 import moment from 'moment'
+import fetch from "isomorphic-unfetch";
 
 // Configuration
 const DEFAULT_IMG = require('@/assets/default.png')
@@ -186,9 +187,10 @@ export default function(ctx, inject) {
         //   .embed()
         //   .param({'_wpnonce': nonce})
         item = await fetch(
-            `https://admin.apilablealinfinito.com.ar/wp-json/wp/v2/articulos/${id}?_embed=true&_wpnonce=${nonce}`,
+            `https://admin.apilablealinfinito.com.ar/wp-json/postlight/v1/articulos/preview?id=${id}&_embed=true&_wpnonce=${nonce}`,
             { credentials: "include" } // required for cookie nonce auth
-        )
+        ).then(res => res.json())
+
       }else{
         item = await wp.articulos()
           .id(id)
