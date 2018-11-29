@@ -220,15 +220,6 @@ export default {
     }
   }
 
-
-
-
-
-
-
-
-
-
   .artwork .artist {
     font-size: 2.25rem;
     margin-bottom: 30px;
@@ -253,6 +244,7 @@ export default {
     }
     .wrap-art-cont {
       padding-bottom: 120px;
+      min-height: calc(100vh - 329px)
     }
     .wrap-art {
       display: grid;

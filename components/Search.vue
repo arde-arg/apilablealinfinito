@@ -7,7 +7,7 @@
       @keypress.enter="$emit('newSearch', $event.target.value)"
       placeholder="Buscar obra..."
     />
-    <v-icon name="search"/>
+    <v-icon name="search"/ @click="$emit('newSearch', $event.target.value)">
   </div>
 </template>
 <script>
@@ -40,7 +40,7 @@ input {
   background-color: #dbdbdb;
   border-radius: 5px;
   height: 40px;
-  padding: 5px;
+  padding: 5px 25px 5px 5px;
   width: 275px;
 }
 .fa-icon {
