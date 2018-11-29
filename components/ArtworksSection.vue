@@ -1,13 +1,17 @@
 <template>
 <div class="artworks">
-  <nuxt-link :to="{name: 'artwork-id', params:{id: item.id}}"
+  <loading-message class="box" v-show="$store.state.loading" />
+  <loading-message class="box" v-show="$store.state.loading" />
+  <loading-message class="box" v-show="$store.state.loading" />
+  <nuxt-link
+    v-show="!$store.state.loading"
+    :to="{name: 'artwork-id', params:{id: item.id}}"
     v-for="item in artworksHome"
     :key="item.id"
     class="box"
     :style="{'background-image': 'url(' +  (item.img.src || item.img.src_default) + ')'}">
 
-  <loading-message v-show="$store.state.loading" />
-   <div v-show="!$store.state.loading" class="overlay">
+   <div class="overlay">
      <div class="artwork-name">{{item.title}}</div>
      <div class="author">{{item.artist}}</div>
    </div>
