@@ -81,7 +81,7 @@ export default{
     .item .category {
       font-size: 0.8rem;
       line-height: 1rem;
-      margin-top: 10px;
+      margin: 10px 0;
     }
     .item .title {
       font-size: 1.5rem;

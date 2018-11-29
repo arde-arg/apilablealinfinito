@@ -47,5 +47,6 @@ input {
   position: absolute;
   right: 10px;
   top: 13px;
+  cursor: pointer;
 }
 </style>
