@@ -1,8 +1,6 @@
 <template>
 <div class="artworks">
-  <loading-message class="box" v-show="$store.state.loading" />
-  <loading-message class="box" v-show="$store.state.loading" />
-  <loading-message class="box" v-show="$store.state.loading" />
+  <loading-message class="loader" v-show="$store.state.loading" />
   <nuxt-link
     v-show="!$store.state.loading"
     :to="{name: 'artwork-id', params:{id: item.id}}"
@@ -49,6 +47,15 @@ export default{
   /*justify-content: center;*/
   /*align-content: end;*/
 }
+.loader {
+  width: 100%;
+  height: 100%;
+  background-color: #fffeee;
+  color: #fff;
+}
+  .loader p {
+    color: #fff;
+  }
 
 .box {
   background-color: #eee;
