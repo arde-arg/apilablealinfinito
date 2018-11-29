@@ -4,7 +4,7 @@
       <div class="wrapper-1100">
         <img class="logo-principal" src="../assets/marca-vertical.svg" alt="Apilable al infinito">
       </div>
-      <img class="bg-letter" src="../assets/a.svg" alt="a">
+      <!-- <img class="bg-letter" src="../assets/a.svg" alt="a"> -->
     </section>
     <section class="project">
       <div class="wrapper-1100">
@@ -29,8 +29,7 @@
       </div>
     </section>
 
-    <loading-message v-show="$store.state.loading" />
-    <artworks-section v-show="!$store.state.loading"/>
+    <artworks-section/>
 
     <register-section />
   </div>
@@ -40,14 +39,14 @@
 import ArtworksSection from '~/components/ArtworksSection.vue'
 import ButtonLayout from '~/components/ButtonLayout.vue'
 import RegisterSection from '~/components/RegisterSection.vue'
-import LoadingMessage from '~/components/LoadingMessage.vue'
+// import LoadingMessage from '~/components/LoadingMessage.vue'
 
 export default {
   components: {
     ArtworksSection,
     ButtonLayout,
-    RegisterSection,
-    LoadingMessage
+    RegisterSection
+    // LoadingMessage
   }
 }
 </script>
@@ -59,7 +58,7 @@ section {
   width: 100%;
 }
 .main {
-  background: #F1E8B8;
+  background: #e9f0ce;
   position: relative;
 }
 .main .wrapper-1100 {

@@ -1,10 +1,14 @@
 <template>
 <div class="artworks">
-  <nuxt-link :to="{name: 'artwork-id', params:{id: item.id}}"
+  <loading-message class="loader" v-show="$store.state.loading" />
+  <nuxt-link
+    v-show="!$store.state.loading"
+    :to="{name: 'artwork-id', params:{id: item.id}}"
     v-for="item in artworksHome"
     :key="item.id"
     class="box"
     :style="{'background-image': 'url(' +  (item.img.src || item.img.src_default) + ')'}">
+
    <div class="overlay">
      <div class="artwork-name">{{item.title}}</div>
      <div class="author">{{item.artist}}</div>
@@ -13,8 +17,12 @@
 </div>
 </template>
 <script>
+import LoadingMessage from '~/components/LoadingMessage.vue'
 export default{
 	name: 'artworks-section',
+  components: {
+    LoadingMessage
+  },
   data () {
     return {
       artworksHome: []
@@ -39,6 +47,15 @@ export default{
   /*justify-content: center;*/
   /*align-content: end;*/
 }
+.loader {
+  width: 100%;
+  height: 100%;
+  background-color: #fffeee;
+  color: #fff;
+}
+  .loader p {
+    color: #fff;
+  }
 
 .box {
   background-color: #eee;
@@ -52,25 +69,26 @@ export default{
   display: block;
 }
 
-.box:first-child {
+.box:nth-child(2) {
   background-color: #fffeee;
   grid-column: 1 / 3;
   grid-row: 1 / 3;
 }
-.box:nth-child(2),
-.box:nth-child(3) {
+.box:nth-child(3),
+.box:nth-child(4) {
   grid-column: 3 / 5;
 }
-.box:nth-child(2) {
+.box:nth-child(3) {
   background-color: blue;
   grid-row: 1 / 2;
 }
-.box:nth-child(3) {
+.box:nth-child(4) {
   grid-row: 2 / 2;
 }
   .box .overlay {
     background-color: rgba(104,104,104,.3);
     height: 100%;
+    padding: 20px;
     position: absolute;
     left: 0;
     top: 0;
@@ -79,6 +97,7 @@ export default{
     align-items: center;
     justify-content: center;
     color: #fff;
+    text-align: center;
     flex-direction: column;
   }
     .box:hover .overlay {
@@ -90,6 +109,10 @@ export default{
   }
   .box .artwork-name {
     font-size: 2.250em;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
   }
   .box .author {
     font-size: 1.875em;

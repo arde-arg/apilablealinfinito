@@ -1,5 +1,6 @@
 <template>
 <nav class="nav-vertical">
+  <img src="../assets/optimized/icon-apilable.svg" alt="" title="Apilable al infinito" class="logo-principal">
   <nuxt-link to="/">
     <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34">
       <path fill="#FFF" d="M30.419 16.866a.806.806 0 0 0-.806.805v14.361h-8.65v-9.015a.806.806 0 0 0-.806-.806h-6.314a.806.806 0 0 0-.806.806v7.147a.806.806 0 1 0 1.612 0v-6.342h4.703v8.209H4.387v-19.73L17 2.194l12.915 10.35a.806.806 0 1 0 1.009-1.258L17.504.532a.806.806 0 0 0-1.008 0L3.077 11.286a.807.807 0 0 0-.302.629v20.924c0 .445.361.806.807.806H30.42c.445 0 .807-.36.807-.806V17.671a.808.808 0 0 0-.808-.805z" />
@@ -29,40 +30,46 @@ export default {
 </script>
 <style scoped>
 .nav-vertical {
-    background: #FF4C3A;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    height: 100vh;
-    justify-content: center;
-    left: 0;
-    position: fixed;
-    top: 0;
-    width: 55px;
+  background: #FF4C3A;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 55px;
 }
-
+.nav-vertical .logo-principal {
+  position: absolute;
+  top: 20px;
+  left: 10px;
+}
+  @media (max-width: 620px) {
+    .nav-vertical .logo-principal {
+      display: none;
+    }
+  }
 svg {
-    cursor: pointer;
-    margin: 20px 0;
+  cursor: pointer;
+  margin: 20px 0;
 }
-
-svg:hover {
+  svg:hover {
     transition: all .6s;
     transform: scale(1.1);
-}
-
+  }
 @media (max-width: 620px) {
-    .nav-vertical {
-        bottom: 0;
-        flex-direction: row;
-        justify-content: space-around;
-        height: 55px;
-        top: auto;
-        width: 100%;
-    }
-
-    svg {
-        margin: 0 20px;
-    }
+  .nav-vertical {
+    bottom: 0;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 55px;
+    top: auto;
+    width: 100%;
+  }
+  svg {
+    margin: 0 20px;
+  }
 }
 </style>
