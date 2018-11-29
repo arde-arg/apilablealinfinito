@@ -2,12 +2,12 @@
   <div class="search">
     <input
       type="search"
-      :value="search"
+      v-model="currentSearch"
       name="search"
       @keypress.enter="$emit('newSearch', $event.target.value)"
       placeholder="Buscar obra..."
     />
-    <v-icon name="search"/>
+    <v-icon name="search" @click.native="$emit('newSearch',currentSearch)"/>
   </div>
 </template>
 <script>
@@ -21,6 +21,11 @@ export default{
     search: {
       type: String,
       default: ''
+    }
+  },
+  data () {
+    return {
+      currentSearch: this.search
     }
   }
 }
