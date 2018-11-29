@@ -156,7 +156,7 @@ export default {
   position: relative;
   /*margin-bottom: 80px;*/
 }
-  .portada .portad-bg {
+  .portada .portada-bg {
     position: absolute;
     width:100%;
     height: 225px;
@@ -170,48 +170,49 @@ export default {
     display: block;
     /*align-items: center;*/
   }
-.back-btn {
-  /*position: absolute;*/
-  /*left: 15px;*/
-  /*top: 40px;*/
-  display:  block;
-  margin-bottom: 20px;
-  font-size: 1.5rem;
-}
-.fa-icon {
-  width: auto;
-  height: 1em; /* or any other relative font sizes */
-
-  /* You would have to include the following two lines to make this work in Safari */
-  max-width: 100%;
-  max-height: 100%;
-}
-
-.artwork .category {
-  font-size: 1.5rem;
-  margin-bottom: 50px;
-}
-
-.page-title {
-  font-size: 3rem;
-  line-height: 3.2rem;
-  position: relative;
-  bottom: auto;
-  left: auto;
-}
-@media (max-width: 620px) {
-  .portada {
-    margin-bottom: 40px;
+  .back-btn {
+    /*position: absolute;*/
+    /*left: 15px;*/
+    /*top: 40px;*/
+    display:  block;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
   }
-  .portada .wrapper-1100 {
-    height: auto;
+  .fa-icon {
+    width: auto;
+    height: 1em; /* or any other relative font sizes */
+
+    /* You would have to include the following two lines to make this work in Safari */
+    max-width: 100%;
+    max-height: 100%;
   }
+
+  .artwork .category {
+    display: block;
+    font-size: 1.5rem;
+    margin-bottom: 50px;
+  }
+
   .page-title {
+    font-size: 3rem;
+    line-height: 3.2rem;
+    position: relative;
     bottom: auto;
-    font-size: 2.5rem;
-    line-height: 2.6rem;
+    left: auto;
   }
-}
+  @media (max-width: 620px) {
+    .portada {
+      margin-bottom: 40px;
+    }
+    .portada .wrapper-1100 {
+      height: auto;
+    }
+    .page-title {
+      bottom: auto;
+      font-size: 2.5rem;
+      line-height: 2.6rem;
+    }
+  }
 
 
 
