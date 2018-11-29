@@ -69,20 +69,20 @@ export default{
   display: block;
 }
 
-.box:first-child {
+.box:nth-child(2) {
   background-color: #fffeee;
   grid-column: 1 / 3;
   grid-row: 1 / 3;
 }
-.box:nth-child(2),
-.box:nth-child(3) {
+.box:nth-child(3),
+.box:nth-child(4) {
   grid-column: 3 / 5;
 }
-.box:nth-child(2) {
+.box:nth-child(3) {
   background-color: blue;
   grid-row: 1 / 2;
 }
-.box:nth-child(3) {
+.box:nth-child(4) {
   grid-row: 2 / 2;
 }
   .box .overlay {
