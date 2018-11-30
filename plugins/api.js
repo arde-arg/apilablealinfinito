@@ -20,7 +20,7 @@ let makeArticle = function(item){
     : undefined
 
   // Image
-  let image = item._embedded && item._embedded['wp:featuredmedia']
+  let image = (item._embedded && item._embedded['wp:featuredmedia'])
     ? item._embedded['wp:featuredmedia'].find(media => media.media_type === 'image')
     : undefined
 
@@ -53,7 +53,7 @@ let makeArticle = function(item){
       src: (image && image.media_details)
         ? (image.media_details.sizes.medium_large
           ? image.media_details.sizes.medium_large.source_url
-          : image.media_details.source_url
+          : image.media_details.sizes.full.source_url
         ) : '',
       alt: image ? image.alt_text : '',
       src_default: DEFAULT_IMG
@@ -101,12 +101,17 @@ export default function(ctx, inject) {
   let api = {
     async getFeaturedArticles() {
       try {
-        let items = await wp.articulos()
-          .perPage(3)
-          .order('asc')
-          .param({status: 'publish'})
-          .orderby('date')
-          .embed()
+        let items = await fetch(
+            `${process.env.WP_API_URL}/wp/v2/articulos`
+            + `?_embed=true`
+            + `&order=asc`
+            + `&orderby=rand`
+            + `&per_page=3`
+            + `&status=publish`
+            + `&filter[meta_key]=_thumbnail_id`
+            + `&filter[meta_value_num]=0`
+            + `&filter[meta_compare]=>`
+        ).then(res => res.json())
         return makeArticles(items)
 
       }catch(e){
