@@ -45,12 +45,13 @@ input {
   background-color: #dbdbdb;
   border-radius: 5px;
   height: 40px;
-  padding: 5px;
+  padding: 5px 35px 5px 5px;
   width: 275px;
 }
 .fa-icon {
   position: absolute;
   right: 10px;
   top: 13px;
+  cursor: pointer;
 }
 </style>

@@ -79,16 +79,17 @@ export default{
   grid-column: 3 / 5;
 }
 .box:nth-child(3) {
-  background-color: blue;
+  background-color: #fffeee;
   grid-row: 1 / 2;
 }
 .box:nth-child(4) {
+  background-color: #fffeee;
   grid-row: 2 / 2;
 }
   .box .overlay {
     background-color: rgba(104,104,104,.3);
     height: 100%;
-    padding: 20px;
+    padding: 40px;
     position: absolute;
     left: 0;
     top: 0;
@@ -124,6 +125,9 @@ export default{
   }
   .box {
     height: 300px;
+  }
+  .box .overlay {
+    padding: 20px;
   }
 }
 
