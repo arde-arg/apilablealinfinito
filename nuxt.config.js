@@ -1,6 +1,6 @@
 const nodeExternals = require('webpack-node-externals')
 module.exports = {
-
+  mode: 'spa',
   router: {
     base: '/',
     extendRoutes(routes, resolve) {

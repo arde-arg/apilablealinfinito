@@ -187,14 +187,10 @@ export default function(ctx, inject) {
     async getArticle(id, nonce = false) {
       let item = null
       if(nonce){
-        // item = await wp.articulos()
-        //   .id(id)
-        //   .embed()
-        //   .param({'_wpnonce': nonce})
-        item = await fetch(
-            `https://admin.apilablealinfinito.com.ar/wp-json/postlight/v1/articulos/preview?id=${id}&_embed=true&_wpnonce=${nonce}`,
-            { credentials: "include" } // required for cookie nonce auth
-        ).then(res => res.json())
+        item = await wp.articulos()
+          .id(id)
+          .embed()
+          .param({'_wpnonce': nonce})
 
       }else{
         item = await wp.articulos()
