@@ -74,7 +74,7 @@ ul {
     padding-left: 0;
   }
   body {
-    padding-bottom: 55px;
+    padding-bottom: 45px;
   }
 }
 input {

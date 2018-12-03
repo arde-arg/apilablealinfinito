@@ -18,16 +18,18 @@
     </div>
     <div class="wrap-img">
       <img src="../assets/proyecto-personas.png" alt="Grupo Apilable al infinito.">
-      <p>AGUSTÍN LAFROSSIA</p>
-      <p>AGUSTINA GIRARDI</p>
-      <p>ALICIA VANDAMME</p>
-      <p>CARLOS JAVIER DIAZ DE LA SOTA</p>
-      <p>EZEQUIEL RIVERO</p>
-      <p>GABRIELA MUÑOZ</p>
-      <p>GUILLERMO PEREZ RAVENTOS</p>
-      <p>JOAQUIN CONDE</p>
-      <p>KEVIN POWELL</p>
-      <p>RAFAEL SANTOS</p>
+      <p>Guillermo Perez Raventos</p>
+      <p>Carlos Javier Diaz de la Sota</p>
+      <p>Alicia Vandamme</p>
+      <div class="secondary">
+        <p>Agustín La Frossia</p>
+        <p>Agustina Girardi</p>
+        <p>Ezequiel Rivero</p>
+        <p>Gabriela Muñoz</p>
+        <p>Joaquin Conde</p>
+        <p>Kevin Powell</p>
+        <p>Rafael Santos</p>
+      </div>
     </div>
   </div>
 </div>
@@ -57,7 +59,7 @@ export default {
 }
 .main-cont {
   display: grid;
-  grid-gap: 20px;
+  grid-gap: 30px;
   grid-template-columns: 2;
   grid-template-rows: 2;
   padding-bottom: 50px;
@@ -81,6 +83,24 @@ export default {
     .main-cont {
       display: block;
     }
+  }
+.project .secondary {
+  margin-top: 25px;
+  position: relative;
+}
+  .project .secondary:before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 0;
+    width: 20px;
+    height: 3px;
+    background-color: #FF4C3A;
+  }
+  .project .secondary p {
+    font-size: 14px;
+    line-height: 16px;
+    margin-bottom: 5px;
   }
 </style>
 

@@ -38,14 +38,25 @@
         }
       }"
       class="artist"
-    >
-      @{{ artwork.artist }}
+    >@{{ artwork.artist }}
     </nuxt-link>
     <div class="date-block">
       <div class="date">{{ artwork.date }}</div>
       <share></share>
     </div>
     <div class="wrap-art">
+
+      <div v-if="artwork.video">
+        <iframe
+          :src="'https://player.vimeo.com/video/' + artwork.video"
+          width="640"
+          height="352"
+          frameborder="0"
+          webkitallowfullscreen
+          mozallowfullscreen
+          allowfullscreen
+        ></iframe>
+      </div>
 
       <div class="content">
         <template v-if="$store.state.loading">
@@ -58,18 +69,6 @@
 
       <div class="wrap-img">
         <img :src="artwork.img.src" :alt="artwork.img.alt" class="cover-img">
-      </div>
-
-      <div v-if="artwork.video">
-        <iframe
-          :src="'https://player.vimeo.com/video/' + artwork.video"
-          width="640"
-          height="352"
-          frameborder="0"
-          webkitallowfullscreen
-          mozallowfullscreen
-          allowfullscreen
-        ></iframe>
       </div>
 
     </div>
@@ -224,6 +223,10 @@ export default {
     font-size: 2.25rem;
     margin-bottom: 30px;
   }
+  .artwork .artist:hover {
+    transition: .3s all ease;
+    color: #FF4C3A;
+  }
   .artwork .date-block {
     align-items: center;
     display: flex;
@@ -248,7 +251,7 @@ export default {
     }
     .wrap-art {
       display: grid;
-      grid-gap: 15px;
+      grid-gap: 30px;
       grid-template-columns: 2;
       grid-template-rows: 2;
     }

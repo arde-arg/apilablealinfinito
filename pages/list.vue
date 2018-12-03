@@ -98,7 +98,7 @@ export default {
 }
 .cont-list-modules {
   /*min-height: calc(100vh - 120px -80px - 42px - 1px - 50px)*/
-  min-height: calc(100vh - 120px -80px - 42px)
+  min-height: calc(100vh - 120px - 80px - 42px)
 }
 </style>
 

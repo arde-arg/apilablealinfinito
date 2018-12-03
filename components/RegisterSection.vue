@@ -6,7 +6,7 @@
 
       <a href="https://admin.apilablealinfinito.com.ar/wp-admin/">
         <button-layout color="black">
-          <template slot="button">registrarse</template>
+          <template slot="button">Registrarse</template>
         </button-layout>
       </a>
     </div>
