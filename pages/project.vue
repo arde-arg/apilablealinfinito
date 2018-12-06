@@ -18,8 +18,8 @@
     </div>
     <div class="wrap-img">
       <img src="../assets/proyecto-personas.png" alt="Grupo Apilable al infinito.">
-      <p>Guillermo Perez Raventos</p>
-      <p>Carlos Javier Diaz de la Sota</p>
+      <p>Guillermo Pérez Raventós</p>
+      <p>Carlos Javier Díaz de la Sota</p>
       <p>Alicia Vandamme</p>
       <div class="secondary">
         <p>Agustín La Frossia</p>

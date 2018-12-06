@@ -46,7 +46,7 @@
     </div>
     <div class="wrap-art">
 
-      <div v-if="artwork.video">
+<!--       <div v-if="artwork.video">
         <iframe
           :src="'https://player.vimeo.com/video/' + artwork.video"
           width="640"
@@ -54,15 +54,25 @@
           frameborder="0"
           webkitallowfullscreen
           mozallowfullscreen
-          allowfullscreen
-        ></iframe>
-      </div>
+          allowfullscreen>
+        </iframe>
+      </div> -->
 
       <div class="content">
         <template v-if="$store.state.loading">
           <loading-message />
         </template>
         <template v-else>
+          <iframe
+            v-if="artwork.video"
+            :src="'https://player.vimeo.com/video/' + artwork.video"
+            width="640"
+            height="352"
+            frameborder="0"
+            webkitallowfullscreen
+            mozallowfullscreen
+            allowfullscreen>
+          </iframe>
           <div v-html="artwork.content"></div>
         </template>
       </div>
@@ -258,6 +268,9 @@ export default {
     .wrap-art .content {
       grid-column: 1 / 2;
       grid-row: 1 / 3;
+    }
+    .wrap-art iframe {
+      margin-bottom: 20px;
     }
     @media (max-width: 620px) {
       .wrap-art {
