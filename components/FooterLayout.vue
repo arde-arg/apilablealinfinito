@@ -2,10 +2,10 @@
 <footer class="footer-layout">
   <div class="wrapper-1100">
     <div class="col-izq">
-      <a href="">
+      <a href="https://www.facebook.com/Apilablealinfinito/" target="_blank">
         <v-icon name="brands/facebook-square"/>
       </a>
-      <a href="">
+      <a href="https://www.instagram.com/apilable.al.infinito/" target="_blank">
         <v-icon name="brands/instagram"/>
       </a>
       <p>@apilablealinfinito</p>
