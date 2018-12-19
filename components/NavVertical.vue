@@ -1,6 +1,8 @@
 <template>
 <nav class="nav-vertical">
-  <img src="../assets/optimized/icon-apilable.svg" alt="" title="Apilable al infinito" class="logo-principal">
+  <nuxt-link to="/project" class="logo-principal">
+    <img src="../assets/optimized/icon-apilable.svg" alt="" title="Apilable al infinito">
+  </nuxt-link>
   <nuxt-link to="/">
     <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34">
       <path fill="#FFF" d="M30.419 16.866a.806.806 0 0 0-.806.805v14.361h-8.65v-9.015a.806.806 0 0 0-.806-.806h-6.314a.806.806 0 0 0-.806.806v7.147a.806.806 0 1 0 1.612 0v-6.342h4.703v8.209H4.387v-19.73L17 2.194l12.915 10.35a.806.806 0 1 0 1.009-1.258L17.504.532a.806.806 0 0 0-1.008 0L3.077 11.286a.807.807 0 0 0-.302.629v20.924c0 .445.361.806.807.806H30.42c.445 0 .807-.36.807-.806V17.671a.808.808 0 0 0-.808-.805z" />
@@ -48,7 +50,26 @@ export default {
 }
   @media (max-width: 620px) {
     .nav-vertical .logo-principal {
-      display: none;
+      position: fixed;
+      top: 5px;
+      right: 5px;
+      left: auto;
+      background-color: rgba(255,78,58,.6);
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.19);
+      transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+    }
+      .nav-vertical .logo-principal:hover {
+        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+        background-color: rgba(255,78,58,1);
+      }
+    .nav-vertical .logo-principal img {
+      width: 25px;
     }
   }
 svg {
@@ -61,15 +82,19 @@ svg {
   }
 @media (max-width: 620px) {
   .nav-vertical {
+    background-color: rgba(255,78,58,.9);
     bottom: 0;
     flex-direction: row;
     justify-content: space-around;
-    height: 55px;
+    height: 45px;
     top: auto;
     width: 100%;
   }
-  svg {
-    margin: 0 20px;
-  }
+    .nav-vertical a {
+      display: block;
+    }
+    svg {
+      margin: 0 20px;
+    }
 }
 </style>

@@ -38,8 +38,7 @@
         }
       }"
       class="artist"
-    >
-      @{{ artwork.artist }}
+    >@{{ artwork.artist }}
     </nuxt-link>
     <div class="date-block">
       <div class="date">{{ artwork.date }}</div>
@@ -47,11 +46,33 @@
     </div>
     <div class="wrap-art">
 
+<!--       <div v-if="artwork.video">
+        <iframe
+          :src="'https://player.vimeo.com/video/' + artwork.video"
+          width="640"
+          height="352"
+          frameborder="0"
+          webkitallowfullscreen
+          mozallowfullscreen
+          allowfullscreen>
+        </iframe>
+      </div> -->
+
       <div class="content">
         <template v-if="$store.state.loading">
           <loading-message />
         </template>
         <template v-else>
+          <iframe
+            v-if="artwork.video"
+            :src="'https://player.vimeo.com/video/' + artwork.video"
+            width="640"
+            height="352"
+            frameborder="0"
+            webkitallowfullscreen
+            mozallowfullscreen
+            allowfullscreen>
+          </iframe>
           <div v-html="artwork.content"></div>
         </template>
       </div>
@@ -60,32 +81,20 @@
         <img :src="artwork.img.src" :alt="artwork.img.alt" class="cover-img">
       </div>
 
-      <div v-if="artwork.video">
-        <iframe
-          :src="'https://player.vimeo.com/video/' + artwork.video"
-          width="640"
-          height="352"
-          frameborder="0"
-          webkitallowfullscreen
-          mozallowfullscreen
-          allowfullscreen
-        ></iframe>
-      </div>
-
     </div>
     <div v-if="artwork.pdfs.length" class="download-row">
       <div
         v-for="pdf in artwork.pdfs"
         :key="pdf.id"
         class="download-item" >
-        <svg xmlns="http://www.w3.org/2000/svg" width="40.572" height="40.573">
-          <path d="M39.748 36.524a.826.826 0 0 0-.826.826v1.571H1.651v-5.504h38.097a.825.825 0 0 0 0-1.651H.825a.828.828 0 0 0-.825.828v7.153c0 .456.369.826.825.826h38.922c.455 0 .824-.37.824-.826v-2.396a.823.823 0 0 0-.823-.827zM19.703 27.999a.828.828 0 0 0 1.167 0L31.378 17.49a.827.827 0 0 0 0-1.168.824.824 0 0 0-1.167 0l-9.925 9.925-9.926-9.925a.824.824 0 0 0-1.167 0 .827.827 0 0 0 0 1.168l10.51 10.509z"/>
-          <path d="M20.287 23.589c.456 0 .825-.37.825-.825V.825a.825.825 0 0 0-1.652 0v21.938c0 .456.37.826.827.826z"/>
-        </svg>
         <a
           :href="pdf.src"
           target="_blank">
-          {{pdf.filename}}
+          <svg xmlns="http://www.w3.org/2000/svg" width="40.572" height="40.573">
+            <path d="M39.748 36.524a.826.826 0 0 0-.826.826v1.571H1.651v-5.504h38.097a.825.825 0 0 0 0-1.651H.825a.828.828 0 0 0-.825.828v7.153c0 .456.369.826.825.826h38.922c.455 0 .824-.37.824-.826v-2.396a.823.823 0 0 0-.823-.827zM19.703 27.999a.828.828 0 0 0 1.167 0L31.378 17.49a.827.827 0 0 0 0-1.168.824.824 0 0 0-1.167 0l-9.925 9.925-9.926-9.925a.824.824 0 0 0-1.167 0 .827.827 0 0 0 0 1.168l10.51 10.509z"/>
+            <path d="M20.287 23.589c.456 0 .825-.37.825-.825V.825a.825.825 0 0 0-1.652 0v21.938c0 .456.37.826.827.826z"/>
+          </svg>
+          <p>{{pdf.filename}}</p>
         </a>
       </div>
     </div>
@@ -224,6 +233,10 @@ export default {
     font-size: 2.25rem;
     margin-bottom: 30px;
   }
+  .artwork .artist:hover {
+    transition: .3s all ease;
+    color: #FF4C3A;
+  }
   .artwork .date-block {
     align-items: center;
     display: flex;
@@ -248,13 +261,16 @@ export default {
     }
     .wrap-art {
       display: grid;
-      grid-gap: 15px;
+      grid-gap: 30px;
       grid-template-columns: 2;
       grid-template-rows: 2;
     }
     .wrap-art .content {
       grid-column: 1 / 2;
       grid-row: 1 / 3;
+    }
+    .wrap-art iframe {
+      margin-bottom: 20px;
     }
     @media (max-width: 620px) {
       .wrap-art {
