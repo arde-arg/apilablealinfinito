@@ -4,7 +4,7 @@
     <div class="wrap-text">
       <h3>Regístrate y conocé más sobre nosotros</h3>
 
-      <a href="https://admin.apilablealinfinito.com.ar/wp-admin/">
+      <a href="/wp-admin/">
         <button-layout color="black">
           <template slot="button">Registrarse</template>
         </button-layout>
