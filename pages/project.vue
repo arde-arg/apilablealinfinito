@@ -8,7 +8,7 @@
   <div class="wrapper-1100 main-cont">
     <div class="content">
       <h2>¿Qués es Apilable al infinito?</h2>
-      <p>Un concepto: “Apilable al infinito” (se colecciona, se archiva, se comparte).</p>
+      <p>Concepto: “Apilable al infinito” (se colecciona, se archiva, se comparte).</p>
       <p>Apilable como archivo: registro ordenado de obra, documentación de obra y autor.</p>
       <p>Apilable como obra, que se “archiva”, el carácter de hacerlo en módulos intercambiables hace que la lectura se realice e intervenga de forma diferente en cada usuario / espectador / coleccionista.</p>
       <p>La intención de los creadores de Apilable al infinito es interactuar con otros artistas para ir concretando la construcción de un “gran archivo”. En tanto compilador, se inscribe dentro de la tradición de la Ilustración y la enciclopedia dando respuesta poética a una contemporaneidad de sociedades regidas por la información. Irreversibilidad del tiempo y la sensación de estar dentro y no fuera del acontecimiento. El arte contemporáneo como bien dice Boris Groys, se vuelve el medio para investigar el ser del acontecimiento, los diferentes modos de la experiencia inmediata del acontecimiento, la relación entre el acontecimiento, la documentación y el archivo, y las formas emocionales e intelectuales a partir de las que nos relacionamos con la documentación.</p>
